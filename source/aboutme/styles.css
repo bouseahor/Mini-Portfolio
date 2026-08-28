@@ -1,0 +1,621 @@
+body{
+    overflow-x: hidden;
+    background-color: #e9ecf0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #4a4e5a;
+    font-size: 25px;
+    margin-top: 25px;
+}
+.left-nav{
+    margin-left: 50px;
+    font-family: "JetBrains Mono", cursive;
+    font-weight: 500;
+    
+    .span{
+        color: #35d07f;
+    }
+}
+nav{
+    display: flex;
+    gap: 20px;
+}
+nav a{
+    position: relative;
+    text-decoration: none;
+    color: #4a4e5a;
+}
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #35d07f  ;
+    transition: width .3s ease;
+}
+nav a:hover{
+    color: #12141a;
+}
+nav a:hover::after{
+    width: 100%;
+}
+.right-nav{
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    cursor: pointer;
+
+    .icon{
+        color: black;
+    }
+}
+.link{
+    color: #4a4e5a;
+    text-decoration: none;
+}
+.title{
+    margin: 100px 0 0 100px;
+    align-self: flex-start;
+    max-width: 700px;
+    width: 100%;
+    text-align: left;
+}
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1400px;
+}
+
+.story{
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 700px;
+    transform-style: preserve-3d;
+    transition: transform .5s ease, box-shadow .5s ease;
+    box-shadow:
+        0 1px 2px rgba(20,24,34,0.05),
+        0 15px 30px rgba(20,24,34,0.10),
+        0 30px 60px rgba(20,24,34,0.08);
+}
+
+.story::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1b2436, #35d07f 180%);
+    opacity: 0.15;
+    transform: translateZ(-50px);
+    filter: blur(18px);
+    z-index: -1;
+}
+
+.story:hover{
+    transform: rotateX(6deg) rotateY(-6deg) translateY(-8px);
+    box-shadow:
+        0 2px 4px rgba(20,24,34,0.06),
+        0 25px 40px rgba(20,24,34,0.14),
+        0 45px 80px rgba(20,24,34,0.14);
+}
+
+.story .avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #35d07f;
+    background: linear-gradient(145deg, #1b2436, #2a3550);
+    box-shadow:
+        6px 6px 14px rgba(20,24,34,0.35),
+        -4px -4px 10px rgba(255,255,255,0.04);
+    transform: translateZ(40px);
+    transition: transform .5s ease;
+}
+
+.story:hover .avatar{
+    transform: translateZ(60px) scale(1.5);
+}
+
+.story h4{
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #12141a;
+    margin: 0 0 10px;
+    transform: translateZ(25px);
+}
+
+.story p{
+    font-family: "PT Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4a4e5a;
+    max-width: 600px;
+    transform: translateZ(20px);
+}
+
+.story .table{
+    margin-top: 20px;
+    transform: translateZ(15px);
+
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td{
+        text-align: left;
+        padding: 8px 12px;
+    }
+    th{
+        font-family: "PT Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #8a8f9c;
+        border-bottom: 1px solid #e1e4ea;
+    }
+    td{
+        font-family: "PT Sans", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #12141a;
+    }
+}
+
+@media (max-width: 780px) {
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+        margin-top: 18px;
+        width: 100%;
+    }
+
+    /* Logo */
+    .left-nav {
+        margin-left: 0;
+        width: 100%;
+
+        text-align: center;
+
+        font-size: 20px;
+    }
+
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+        gap: 8px 12px;
+
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Facebook */
+    .right-nav {
+        position: static;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .right-nav .icon {
+        font-size: 16px;
+    }
+
+    .link {
+        font-size: 15px;
+    }
+    .about{
+        font-size: 20px;
+        max-width: 900px;
+        text-align: center;
+    }
+    .title p{
+        width: 100%;
+        max-width: 400px;
+    }
+    .story{
+        width: auto;
+        height: auto;
+        margin:50px 50px;
+    }
+    .story p{
+        font-size: 15px;
+        text-align:justify;
+    }
+}
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+/* ---------- Large Desktop ---------- */
+@media (min-width: 1200px) {
+
+    .header {
+        padding: 0 50px;
+    }
+
+    .title {
+        margin-left: 100px;
+        max-width: 700px;
+    }
+
+    .story {
+        width: 700px;
+    }
+}
+
+
+/* ---------- Desktop / Laptop ---------- */
+@media (max-width: 1199px) {
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .left-nav {
+        margin-left: 0;
+    }
+
+    .right-nav {
+        margin-right: 0;
+    }
+
+    .title {
+        margin: 80px 40px 0;
+        max-width: 650px;
+        width: auto;
+    }
+
+    .story {
+        width: min(700px, calc(100% - 80px));
+    }
+}
+
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 25px;
+        gap: 15px;
+    }
+
+    .left-nav {
+        font-size: 22px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    .right-nav {
+        margin: 0;
+    }
+
+    .title {
+        margin: 70px 30px 0;
+        max-width: 600px;
+    }
+
+    .story {
+        width: calc(100% - 60px);
+        padding: 30px;
+    }
+
+    .story h4 {
+        font-size: 21px;
+    }
+
+    .story p {
+        font-size: 15px;
+    }
+
+    .story .table {
+        overflow-x: auto;
+    }
+
+    .story .table table {
+        min-width: 500px;
+    }
+}
+
+
+/* ---------- Small Tablet / Large Phone ---------- */
+@media (max-width: 780px) {
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+        margin-top: 18px;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    /* Logo */
+    .left-nav {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+        gap: 8px 14px;
+
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Facebook */
+    .right-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .right-nav .icon {
+        font-size: 16px;
+    }
+
+    .link {
+        font-size: 15px;
+    }
+
+    /* About */
+    .about {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    /* Title */
+    .title {
+        margin: 50px 0 0;
+        width: 100%;
+        max-width: 500px;
+        text-align: left;
+    }
+
+    .title p {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Story Card */
+    .story {
+        width: 100%;
+        max-width: 600px;
+        margin: 35px 0;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    .story p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .story h4 {
+        font-size: 20px;
+    }
+
+    .story .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+    }
+
+    .story:hover {
+        transform: translateY(-5px);
+    }
+
+    .story:hover .avatar {
+        transform: translateZ(50px) scale(1.2);
+    }
+
+    /* Table */
+    .story .table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .story .table table {
+        min-width: 450px;
+    }
+}
+
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .header {
+        margin-top: 15px;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .left-nav {
+        font-size: 18px;
+    }
+
+    nav {
+        gap: 7px 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .right-nav .link {
+        font-size: 14px;
+    }
+
+    /* About */
+    .about {
+        padding: 0 10px;
+    }
+
+    /* Title */
+    .title {
+        margin-top: 40px;
+        max-width: 100%;
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .title p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Story */
+    .story {
+        width: 100%;
+        margin: 30px 0;
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .story h4 {
+        font-size: 19px;
+    }
+
+    .story p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .story .avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 18px;
+    }
+
+    /* Table */
+    .story .table {
+        margin-top: 15px;
+        overflow-x: auto;
+    }
+
+    .story .table table {
+        min-width: 420px;
+    }
+
+    .story .table th,
+    .story .table td {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+}
+
+
+/* ---------- Small Phones ---------- */
+@media (max-width: 400px) {
+
+    .header {
+        padding: 0 8px;
+    }
+
+    .left-nav {
+        font-size: 16px;
+    }
+
+    nav {
+        gap: 6px 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .title {
+        margin-top: 30px;
+    }
+
+    .title h1 {
+        font-size: 26px;
+    }
+
+    .title p {
+        font-size: 13px;
+    }
+
+    .story {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .story h4 {
+        font-size: 18px;
+    }
+
+    .story p {
+        font-size: 13px;
+    }
+
+    .story .avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 17px;
+    }
+}
